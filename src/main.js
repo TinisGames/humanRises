@@ -110,19 +110,27 @@ var countryPlayer = {
 	text: {}
 }
 
+var style = {
+	font: "16px Arial", fill: "#fff",
+	align: "left",
+	boundsAlignH: "left",
+	boundsAlignV: "top",
+	wordWrap: true, wordWrapWidth: 300
+};
+
 function create() {
-
 	game.stage.backgroundColor = '#EDEEC9';
+	addCountry1();
+	addCountry2();
+	addCountry3();
+	addCountry4();
+	addCountryPlayer();
+	addLinks();
+	addMarkets();
+	addPlayerInfos();
+}
 
-	var style = {
-		font: "16px Arial", fill: "#fff",
-		align: "left",
-		boundsAlignH: "left",
-		boundsAlignV: "top",
-		wordWrap: true, wordWrapWidth: 300
-	};
-
-	// -- Country 1
+function addCountry1() {
 	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(20, 20, 150, 200);
@@ -148,8 +156,8 @@ function create() {
 	country1.text.sea = game.add.text(120, 160, country1.lands.sea, style);
 	country1.text.forest = game.add.text(120, 180, country1.lands.forest, style);
 	country1.text.housing = game.add.text(120, 200, country1.lands.housing, style);
-
-	// -- Country 2
+}
+function addCountry2() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(20, 580, 150, 200);
@@ -175,8 +183,8 @@ function create() {
 	country2.text.sea = game.add.text(120, 720, country2.lands.sea, style);
 	country2.text.forest = game.add.text(120, 740, country2.lands.forest, style);
 	country2.text.housing = game.add.text(120, 760, country2.lands.housing, style);
-
-	// -- Country 3
+}
+function addCountry3() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(1230, 20, 150, 200);
@@ -202,8 +210,8 @@ function create() {
 	country3.text.sea = game.add.text(1330, 160, country3.lands.sea, style);
 	country3.text.forest = game.add.text(1330, 180, country3.lands.forest, style);
 	country3.text.housing = game.add.text(1330, 200, country3.lands.housing, style);
-
-	// -- Country 4
+}
+function addCountry4() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(1230, 580, 150, 200);
@@ -229,9 +237,9 @@ function create() {
 	country4.text.sea = game.add.text(1330, 720, country4.lands.sea, style);
 	country4.text.forest = game.add.text(1330, 740, country4.lands.forest, style);
 	country4.text.housing = game.add.text(1330, 760, country4.lands.housing, style);
-
-	// -- Player Country
-	graphics = game.add.graphics(0, 0);
+}
+function addCountryPlayer() {
+	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(625, 300, 150, 200);
 	graphics.endFill();
@@ -256,7 +264,66 @@ function create() {
 	countryPlayer.text.sea = game.add.text(725, 440, countryPlayer.lands.sea, style);
 	countryPlayer.text.forest = game.add.text(725, 460, countryPlayer.lands.forest, style);
 	countryPlayer.text.housing = game.add.text(725, 480, countryPlayer.lands.housing, style);
+}
+function addPlayerInfos() {
+	// -- Informations
+	var graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(350, 0, 700, 80);
+	graphics.endFill();
 
+	// -- Player rules
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(350, 550, 700, 800);
+	graphics.endFill();
+}
+function addMarkets() {
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(250, 150, 280, 150);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(150, 350, 280, 150);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(870, 150, 280, 150);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(970, 350, 280, 150);
+	graphics.endFill();
+}
+function addLinks() {
+	var graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(170, 200, 1060, 5);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(110, 420, 1180, 5);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(110, 420, 5, 160);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(700, 200, 5, 350);
+	graphics.endFill();
+
+	graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(1290, 420, 5, 160);
+	graphics.endFill();
 }
 
 function endTurn() {
