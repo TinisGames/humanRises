@@ -1,140 +1,5 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS, 'content', { preload: preload, create: create });
 
-var country1 = {
-	citizens: 100,
-	food: 150,
-	happiness: 100,
-	gold: 50,
-	research: 0,
-	lands: {
-		arable: 14,
-		sea: 2,
-		forest: 3,
-		housing: 1
-	},
-	rules: {
-		citizens: 1.5,
-		housing: 1,
-		fishing: false,
-		hunting: false,
-		consommation: 1.2
-	},
-	population: {
-		fish: 500,
-		wild: 300
-	},
-	markets: {},
-	text: {}
-}
-
-var country2 = {
-	citizens: 200,
-	food: 150,
-	happiness: 100,
-	gold: 150,
-	research: 0,
-	lands: {
-		arable: 14,
-		sea: 2,
-		forest: 3,
-		housing: 2
-	},
-	rules: {
-		citizens: 3,
-		housing: 2,
-		fishing: false,
-		hunting: false,
-		consommation: 2
-	},
-	population: {
-		fish: 500,
-		wild: 300
-	},
-	markets: {},
-	text: {}
-}
-
-var country3 = {
-	citizens: 100,
-	food: 150,
-	happiness: 100,
-	gold: 50,
-	research: 0,
-	lands: {
-		arable: 14,
-		sea: 2,
-		forest: 3,
-		housing: 1
-	},
-	rules: {
-		citizens: 3,
-		housing: 2,
-		fishing: false,
-		hunting: false,
-		consommation: 2
-	},
-	population: {
-		fish: 500,
-		wild: 300
-	},
-	markets: {},
-	text: {}
-}
-
-var country4 = {
-	citizens: 100,
-	food: 150,
-	happiness: 100,
-	gold: 50,
-	research: 0,
-	lands: {
-		arable: 14,
-		sea: 2,
-		forest: 3,
-		housing: 1
-	},
-	rules: {
-		citizens: 3,
-		housing: 2,
-		fishing: false,
-		hunting: false,
-		consommation: 2
-	},
-	population: {
-		fish: 500,
-		wild: 300
-	},
-	markets: {},
-	text: {}
-}
-
-var countryPlayer = {
-	citizens: 100,
-	food: 150,
-	happiness: 100,
-	gold: 50,
-	research: 0,
-	lands: {
-		arable: 14,
-		sea: 2,
-		forest: 3,
-		housing: 1
-	},
-	rules: {
-		citizens: 3,
-		housing: 2,
-		fishing: false,
-		hunting: false,
-		consommation: 2
-	},
-	population: {
-		fish: 500,
-		wild: 300
-	},
-	markets: {},
-	text: {}
-}
-
 var style = {
 	font: "16px Arial", fill: "#fff",
 	align: "left",
@@ -150,14 +15,14 @@ function preload() {
 
 function create() {
 	game.add.tileSprite(0, 0, 1400, 800, 'background');
+	addLinks();
+	addMarkets();
+	addPlayerInfos();
 	addCountry1();
 	addCountry2();
 	addCountry3();
 	addCountry4();
 	addCountryPlayer();
-	addLinks();
-	addMarkets();
-	addPlayerInfos();
 }
 
 function addCountry1() {
@@ -358,64 +223,6 @@ function addLinks() {
 	graphics.drawRect(1290, 420, 5, 160);
 	graphics.endFill();
 }
-
-function updateStats(country) {
-	
-	// Order is important !
-	var newFood = 0;
-	var forest = country.lands.forest;
-	var sea = country.lands.sea;
-	var fish = country.population.fish;
-	var wild = country.population.wild;
-
-	newFood += country.lands.arable * 20;
-	if (country.rules.hunting) newFood += forest * 100;
-	if (country.rules.fishing) newFood += sea * 50;
-	var consommation = country.citizens * country.rules.citizens;
-	console.log(newFood, consommation)
-	country.food = Math.floor(country.food + newFood - consommation);
-	if (country.food < 0) country.food = 0;
-	country.population.fish = (country.rules.fishing) ? fish - (sea * 100) : fish + (sea * 100);
-	country.population.wild = (country.rules.hunting) ? wild - (forest * 100) : wild + (forest * 50);
-
-	var researchVariation = 5 + (country.citizens / 10);
-	if (country.rules.citizens === 1.2) researchVariation += 3;
-	country.research += Math.floor(researchVariation);
-	
-	var goldVariation = 0;
-	country.gold += Math.floor(goldVariation);
-
-	var happinessVariation = 5;
-	if (country.food === 0) happinessVariation -= 20;
-	if (country.rules.consommation === 1.0) happinessVariation -= 7;
-	if (country.rules.consommation === 1.5) happinessVariation += 7;
-	if (country.rules.citizens === 1.1) happinessVariation -= 5;
-	country.happiness += Math.floor(happinessVariation); 
-	
-	country.citizens = Math.floor(country.citizens * country.rules.citizens);
-	var housingVariation = country.citizens / 100;
-	if (housingVariation > country.lands.housing){
-		country.lands.arable -= Math.floor(housingVariation - country.lands.housing);
-		country.lands.housing = Math.floor(housingVariation);
-	}	
-}
-
-function consequences(country) {
-
-}
-
-function refreshStats(country) {
-	country.text.citizens.setText(country.citizens);
-	country.text.food.setText(country.food);
-	country.text.happiness.setText(country.happiness);
-	country.text.gold.setText(country.gold);
-	country.text.research.setText(country.research);
-	country.text.arable.setText(country.lands.arable);
-	country.text.sea.setText(country.lands.sea);
-	country.text.forest.setText(country.lands.forest);
-	country.text.housing.setText(country.lands.housing);
-}
-
 function endTurn() {
 
 	// Update Statistics
@@ -445,4 +252,10 @@ function endTurn() {
 
 	// Global Event
 
+}
+function gameOver() {
+	console.log('game over');
+}
+function victory(country) {
+	console.log(country.name, "win !");
 }
