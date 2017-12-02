@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 800, Phaser.CANVAS, 'content', { create: create });
+var game = new Phaser.Game(1400, 800, Phaser.CANVAS, 'content', { preload: preload, create: create });
 
 var country1 = {
 	citizens: 100,
@@ -13,12 +13,17 @@ var country1 = {
 		housing: 1
 	},
 	rules: {
-		citizens: 3,
-		housing: 2,
+		citizens: 1.5,
+		housing: 1,
 		fishing: false,
 		hunting: false,
-		consommation: 2
+		consommation: 1.2
 	},
+	population: {
+		fish: 500,
+		wild: 300
+	},
+	markets: {},
 	text: {}
 }
 
@@ -41,6 +46,11 @@ var country2 = {
 		hunting: false,
 		consommation: 2
 	},
+	population: {
+		fish: 500,
+		wild: 300
+	},
+	markets: {},
 	text: {}
 }
 
@@ -63,6 +73,11 @@ var country3 = {
 		hunting: false,
 		consommation: 2
 	},
+	population: {
+		fish: 500,
+		wild: 300
+	},
+	markets: {},
 	text: {}
 }
 
@@ -85,6 +100,11 @@ var country4 = {
 		hunting: false,
 		consommation: 2
 	},
+	population: {
+		fish: 500,
+		wild: 300
+	},
+	markets: {},
 	text: {}
 }
 
@@ -107,6 +127,11 @@ var countryPlayer = {
 		hunting: false,
 		consommation: 2
 	},
+	population: {
+		fish: 500,
+		wild: 300
+	},
+	markets: {},
 	text: {}
 }
 
@@ -118,8 +143,13 @@ var style = {
 	wordWrap: true, wordWrapWidth: 300
 };
 
+function preload() {
+	game.load.image('background', 'assets/images/Background2.png');
+	game.load.image('endTurn', 'assets/images/Orange.png');
+}
+
 function create() {
-	game.stage.backgroundColor = '#EDEEC9';
+	game.add.tileSprite(0, 0, 1400, 800, 'background');
 	addCountry1();
 	addCountry2();
 	addCountry3();
@@ -277,6 +307,9 @@ function addPlayerInfos() {
 	graphics.beginFill(0x000000);
 	graphics.drawRect(350, 550, 700, 800);
 	graphics.endFill();
+
+	var endButton = game.add.button(550, 700, 'endTurn', endTurn, this, 2, 1, 0);
+	endButton.scale.set(0.3, 0.2);
 }
 function addMarkets() {
 	graphics = game.add.graphics(0, 0);
@@ -326,13 +359,85 @@ function addLinks() {
 	graphics.endFill();
 }
 
+function updateStats(country) {
+	
+	// Order is important !
+	var newFood = 0;
+	var forest = country.lands.forest;
+	var sea = country.lands.sea;
+	var fish = country.population.fish;
+	var wild = country.population.wild;
+
+	newFood += country.lands.arable * 20;
+	if (country.rules.hunting) newFood += forest * 100;
+	if (country.rules.fishing) newFood += sea * 50;
+	var consommation = country.citizens * country.rules.citizens;
+	console.log(newFood, consommation)
+	country.food = Math.floor(country.food + newFood - consommation);
+	if (country.food < 0) country.food = 0;
+	country.population.fish = (country.rules.fishing) ? fish - (sea * 100) : fish + (sea * 100);
+	country.population.wild = (country.rules.hunting) ? wild - (forest * 100) : wild + (forest * 50);
+
+	var researchVariation = 5 + (country.citizens / 10);
+	if (country.rules.citizens === 1.2) researchVariation += 3;
+	country.research += Math.floor(researchVariation);
+	
+	var goldVariation = 0;
+	country.gold += Math.floor(goldVariation);
+
+	var happinessVariation = 5;
+	if (country.food === 0) happinessVariation -= 20;
+	if (country.rules.consommation === 1.0) happinessVariation -= 7;
+	if (country.rules.consommation === 1.5) happinessVariation += 7;
+	if (country.rules.citizens === 1.1) happinessVariation -= 5;
+	country.happiness += Math.floor(happinessVariation); 
+	
+	country.citizens = Math.floor(country.citizens * country.rules.citizens);
+	var housingVariation = country.citizens / 100;
+	if (housingVariation > country.lands.housing){
+		country.lands.arable -= Math.floor(housingVariation - country.lands.housing);
+		country.lands.housing = Math.floor(housingVariation);
+	}	
+}
+
+function consequences(country) {
+
+}
+
+function refreshStats(country) {
+	country.text.citizens.setText(country.citizens);
+	country.text.food.setText(country.food);
+	country.text.happiness.setText(country.happiness);
+	country.text.gold.setText(country.gold);
+	country.text.research.setText(country.research);
+	country.text.arable.setText(country.lands.arable);
+	country.text.sea.setText(country.lands.sea);
+	country.text.forest.setText(country.lands.forest);
+	country.text.housing.setText(country.lands.housing);
+}
+
 function endTurn() {
 
 	// Update Statistics
+	updateStats(countryPlayer);
+	updateStats(country1);
+	updateStats(country2);
+	updateStats(country3);
+	updateStats(country4);
 
 	// Consequences
+	consequences(countryPlayer);
+	consequences(country1);
+	consequences(country2);
+	consequences(country3);
+	consequences(country4);
 
 	// Refresh Statistics on Board
+	refreshStats(country1);
+	refreshStats(country2);
+	refreshStats(country3);
+	refreshStats(country4);
+	refreshStats(countryPlayer);
 
 	// Refresh Market
 
