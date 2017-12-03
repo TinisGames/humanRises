@@ -59,7 +59,6 @@ function consequences(country) {
 			country.alive = false;
 		}
 	}
-
 	if (country.research >= 1000) {
 		victory(country);
 	}
@@ -86,9 +85,13 @@ function refreshStats(country) {
 		}
 		var graphics = game.add.graphics(0, 0);
 		graphics.beginFill(0x000000);
-		graphics.drawRect(x, y, 150, 200);
+		graphics.drawRect(x, y, 150, 220);
 		graphics.endFill();
 
 		game.add.text(x, y, 'Revolution !', style);
 	}
+}
+
+function refreshMarket(country){
+
 }

@@ -8,9 +8,25 @@ var style = {
 	wordWrap: true, wordWrapWidth: 300
 };
 
+var style2 = {
+	font: "14px Arial", fill: "#fff",
+	align: "left",
+	boundsAlignH: "left",
+	boundsAlignV: "top",
+	wordWrap: true, wordWrapWidth: 300
+};
+
+var turn = 1;
+var turnText;
+
+var buttons = { birth:{}, funding:{}, fishing:{}, hunting:{}, consommation:{}, industry:{}, levelHousing: {} };
+
 function preload() {
+	game.add.plugin(PhaserInput.Plugin);
 	game.load.image('background', 'assets/images/Background2.png');
 	game.load.image('endTurn', 'assets/images/Orange.png');
+	game.load.image('off', 'assets/images/buttonOff.png');
+	game.load.image('on', 'assets/images/buttonOn.png');
 }
 
 function create() {
@@ -28,7 +44,7 @@ function create() {
 function addCountry1() {
 	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(20, 20, 150, 200);
+	graphics.drawRect(20, 20, 150, 220);
 	graphics.endFill();
 
 	game.add.text(20, 20, 'Citizens :', style);
@@ -40,7 +56,8 @@ function addCountry1() {
 	game.add.text(20, 140, '- Arable :', style);
 	game.add.text(20, 160, '- Sea : :', style);
 	game.add.text(20, 180, '- Forest :', style);
-	game.add.text(20, 200, '- Housing :', style);
+	game.add.text(20, 200, '- Industry :', style);
+	game.add.text(20, 220, '- Housing :', style);
 
 	country1.text.citizens = game.add.text(120, 20, country1.citizens, style);
 	country1.text.food = game.add.text(120, 40, country1.food, style);
@@ -50,12 +67,13 @@ function addCountry1() {
 	country1.text.arable = game.add.text(120, 140, country1.lands.arable, style);
 	country1.text.sea = game.add.text(120, 160, country1.lands.sea, style);
 	country1.text.forest = game.add.text(120, 180, country1.lands.forest, style);
-	country1.text.housing = game.add.text(120, 200, country1.lands.housing, style);
+	country1.text.industry = game.add.text(120, 200, country1.lands.industry, style);
+	country1.text.housing = game.add.text(120, 220, country1.lands.housing, style);
 }
 function addCountry2() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(20, 580, 150, 200);
+	graphics.drawRect(20, 580, 150, 220);
 	graphics.endFill();
 
 	game.add.text(20, 580, 'Citizens :', style);
@@ -67,7 +85,8 @@ function addCountry2() {
 	game.add.text(20, 700, '- Arable :', style);
 	game.add.text(20, 720, '- Sea : :', style);
 	game.add.text(20, 740, '- Forest :', style);
-	game.add.text(20, 760, '- Housing :', style);
+	game.add.text(20, 760, '- Industry :', style);
+	game.add.text(20, 780, '- Housing :', style);
 
 	country2.text.citizens = game.add.text(120, 580, country2.citizens, style);
 	country2.text.food = game.add.text(120, 600, country2.food, style);
@@ -77,12 +96,13 @@ function addCountry2() {
 	country2.text.arable = game.add.text(120, 700, country2.lands.arable, style);
 	country2.text.sea = game.add.text(120, 720, country2.lands.sea, style);
 	country2.text.forest = game.add.text(120, 740, country2.lands.forest, style);
-	country2.text.housing = game.add.text(120, 760, country2.lands.housing, style);
+	country2.text.industry = game.add.text(120, 760, country2.lands.industry, style);
+	country2.text.housing = game.add.text(120, 780, country2.lands.housing, style);
 }
 function addCountry3() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(1230, 20, 150, 200);
+	graphics.drawRect(1230, 20, 150, 220);
 	graphics.endFill();
 
 	game.add.text(1230, 20, 'Citizens :', style);
@@ -94,7 +114,8 @@ function addCountry3() {
 	game.add.text(1230, 140, '- Arable :', style);
 	game.add.text(1230, 160, '- Sea : :', style);
 	game.add.text(1230, 180, '- Forest :', style);
-	game.add.text(1230, 200, '- Housing :', style);
+	game.add.text(1230, 200, '- Industry :', style);
+	game.add.text(1230, 220, '- Housing :', style);
 
 	country3.text.citizens = game.add.text(1330, 20, country3.citizens, style);
 	country3.text.food = game.add.text(1330, 40, country3.food, style);
@@ -104,12 +125,13 @@ function addCountry3() {
 	country3.text.arable = game.add.text(1330, 140, country3.lands.arable, style);
 	country3.text.sea = game.add.text(1330, 160, country3.lands.sea, style);
 	country3.text.forest = game.add.text(1330, 180, country3.lands.forest, style);
-	country3.text.housing = game.add.text(1330, 200, country3.lands.housing, style);
+	country3.text.industry = game.add.text(1330, 200, country3.lands.industry, style);
+	country3.text.housing = game.add.text(1330, 220, country3.lands.housing, style);
 }
 function addCountry4() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(1230, 580, 150, 200);
+	graphics.drawRect(1230, 580, 150, 220);
 	graphics.endFill();
 
 	game.add.text(1230, 580, 'Citizens :', style);
@@ -121,7 +143,8 @@ function addCountry4() {
 	game.add.text(1230, 700, '- Arable :', style);
 	game.add.text(1230, 720, '- Sea : :', style);
 	game.add.text(1230, 740, '- Forest :', style);
-	game.add.text(1230, 760, '- Housing :', style);
+	game.add.text(1230, 760, '- Industry :', style);
+	game.add.text(1230, 780, '- Housing :', style);
 
 	country4.text.citizens = game.add.text(1330, 580, country4.citizens, style);
 	country4.text.food = game.add.text(1330, 600, country4.food, style);
@@ -131,12 +154,13 @@ function addCountry4() {
 	country4.text.arable = game.add.text(1330, 700, country4.lands.arable, style);
 	country4.text.sea = game.add.text(1330, 720, country4.lands.sea, style);
 	country4.text.forest = game.add.text(1330, 740, country4.lands.forest, style);
-	country4.text.housing = game.add.text(1330, 760, country4.lands.housing, style);
+	country4.text.industry = game.add.text(1330, 760, country4.lands.industry, style);
+	country4.text.housing = game.add.text(1330, 780, country4.lands.housing, style);
 }
 function addCountryPlayer() {
 	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(625, 300, 150, 200);
+	graphics.drawRect(625, 300, 150, 220);
 	graphics.endFill();
 
 	game.add.text(625, 300, 'Citizens :', style);
@@ -148,7 +172,8 @@ function addCountryPlayer() {
 	game.add.text(625, 420, '- Arable :', style);
 	game.add.text(625, 440, '- Sea : :', style);
 	game.add.text(625, 460, '- Forest :', style);
-	game.add.text(625, 480, '- Housing :', style);
+	game.add.text(625, 480, '- Industry :', style);
+	game.add.text(625, 500, '- Housing :', style);
 
 	countryPlayer.text.citizens = game.add.text(725, 300, countryPlayer.citizens, style);
 	countryPlayer.text.food = game.add.text(725, 320, countryPlayer.food, style);
@@ -158,7 +183,8 @@ function addCountryPlayer() {
 	countryPlayer.text.arable = game.add.text(725, 420, countryPlayer.lands.arable, style);
 	countryPlayer.text.sea = game.add.text(725, 440, countryPlayer.lands.sea, style);
 	countryPlayer.text.forest = game.add.text(725, 460, countryPlayer.lands.forest, style);
-	countryPlayer.text.housing = game.add.text(725, 480, countryPlayer.lands.housing, style);
+	countryPlayer.text.industry = game.add.text(725, 480, countryPlayer.lands.industry, style);
+	countryPlayer.text.housing = game.add.text(725, 500, countryPlayer.lands.housing, style);
 }
 function addPlayerInfos() {
 	// -- Informations
@@ -167,20 +193,97 @@ function addPlayerInfos() {
 	graphics.drawRect(350, 0, 700, 80);
 	graphics.endFill();
 
+	game.add.text(650, 20, 'Turn ', style);
+	turnText = game.add.text(700, 20, turn, style);
+
+	var endButton = game.add.button(800, 10, 'endTurn', endTurn, this, 2, 1, 0);
+	endButton.scale.set(0.3, 0.2);
+	game.add.text(835, 30, 'End Turn', style);
+
 	// -- Player rules
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(350, 550, 700, 800);
+	graphics.drawRect(350, 550, 700, 250);
 	graphics.endFill();
 
-	var endButton = game.add.button(550, 700, 'endTurn', endTurn, this, 2, 1, 0);
-	endButton.scale.set(0.3, 0.2);
+	game.add.text(360, 550, 'Birth Polity', style);
+	buttons.birth.normal = game.add.button(360, 590, 'on', endTurn, this, 2, 1, 0);
+	buttons.birth.normal.scale.set(0.5, 0.5);
+	game.add.text(390, 590, 'Normal', style2);
+	buttons.birth.studyPolity = game.add.button(360, 630, 'off', endTurn, this, 2, 1, 0);
+	buttons.birth.studyPolity.scale.set(0.5, 0.5);
+	game.add.text(390, 630, 'Study Polity', style2);
+	buttons.birth.control = game.add.button(360, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.birth.control.scale.set(0.5, 0.5);
+	game.add.text(390, 670, 'Birth Control', style2);
+
+	game.add.text(490, 550, 'Funding', style);
+	buttons.funding.no = game.add.button(490, 590, 'on', endTurn, this, 2, 1, 0);
+	buttons.funding.no.scale.set(0.5, 0.5);
+	game.add.text(520, 590, 'No', style2);
+	buttons.funding.researchFund = game.add.button(490, 630, 'off', endTurn, this, 2, 1, 0);
+	buttons.funding.researchFund.scale.set(0.5, 0.5);
+	game.add.text(520, 630, 'Research Fund', style2);
+	buttons.funding.homeRenovation = game.add.button(490, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.funding.homeRenovation.scale.set(0.5, 0.5);
+	game.add.text(520, 670, 'Home Renovation', style2);
+
+	game.add.text(650, 550, 'Fishing', style);
+	buttons.fishing.repopulation = game.add.button(650, 590, 'off', endTurn, this, 2, 1, 0);
+	buttons.fishing.repopulation.scale.set(0.5, 0.5);
+	game.add.text(680, 590, 'Repopulation', style2);
+	buttons.fishing.normal = game.add.button(650, 630, 'on', endTurn, this, 2, 1, 0);
+	buttons.fishing.normal.scale.set(0.5, 0.5);
+	game.add.text(680, 630, 'Normal', style2);
+	buttons.fishing.intensive = game.add.button(650, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.fishing.intensive.scale.set(0.5, 0.5);
+	game.add.text(680, 670, 'Intensive', style2);
+
+	game.add.text(790, 550, 'Hunting', style);
+	buttons.hunting.repopulation = game.add.button(790, 590, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.repopulation.scale.set(0.5, 0.5);
+	game.add.text(820, 590, 'Repopulation', style2);
+	buttons.hunting.normal = game.add.button(790, 630, 'on', endTurn, this, 2, 1, 0);
+	buttons.hunting.normal.scale.set(0.5, 0.5);
+	game.add.text(820, 630, 'Normal', style2);
+	buttons.hunting.intensive = game.add.button(790, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.intensive.scale.set(0.5, 0.5);
+	game.add.text(820, 670, 'Intensive', style2);
+
+	game.add.text(930, 550, 'Consommation', style);
+	buttons.hunting.rationing = game.add.button(930, 590, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.rationing.scale.set(0.5, 0.5);
+	game.add.text(960, 590, 'Rationing', style2);
+	buttons.hunting.normal = game.add.button(930, 630, 'on', endTurn, this, 2, 1, 0);
+	buttons.hunting.normal.scale.set(0.5, 0.5);
+	game.add.text(960, 630, 'Normal', style2);
+	buttons.hunting.intensive = game.add.button(930, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.intensive.scale.set(0.5, 0.5);
+	game.add.text(960, 670, 'Profusion', style2);
+
+	game.add.text(370, 720, 'Industry Development', style);
+	buttons.industry.yes = game.add.button(370, 750, 'off', endTurn, this, 2, 1, 0);
+	buttons.industry.yes.scale.set(0.5, 0.5);
+	game.add.text(400, 750, 'Yes', style2);
+	buttons.industry.no = game.add.button(450, 750, 'on', endTurn, this, 2, 1, 0);
+	buttons.industry.no.scale.set(0.5, 0.5);
+	game.add.text(480, 750, 'No', style2);
+
+	game.add.text(700, 720, 'Housing Level', style);
+	game.add.text(720, 750, 'Actual :', style2);
+	countryPlayer.text.levelHousing = game.add.text(780, 750, countryPlayer.rules.levelHousing, style2);
+	buttons.levelHousing.upgrade = game.add.button(850, 750, 'on', endTurn, this, 2, 1, 0);
+	buttons.levelHousing.upgrade.scale.set(4, 0.7);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(880, 755, 'Upgrade : 50 Gold', style2);
+
 }
 function addMarkets() {
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
 	graphics.drawRect(250, 150, 280, 150);
 	graphics.endFill();
+
+	var input = game.add.inputField(300, 180);
 
 	graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
@@ -249,8 +352,14 @@ function endTurn() {
 	// New Rules for other countries
 
 	// Refresh Market
+	refreshMarket(country1);
+	refreshMarket(country2);
+	refreshMarket(country3);
+	refreshMarket(country4);
 
 	// Global Event
+	turn++;
+	turnText.setText(turn);
 
 }
 function gameOver() {
@@ -272,7 +381,7 @@ function victory(country) {
 	}
 	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(x, y, 150, 200);
+	graphics.drawRect(x, y, 150, 220);
 	graphics.endFill();
 
 	game.add.text(x, y, 'Win !', style);
