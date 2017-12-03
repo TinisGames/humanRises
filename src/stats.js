@@ -191,7 +191,7 @@ var countryPlayer = {
 	gold: 50,
 	research: 0,
 	lands: {
-		arable: 14,
+		arable: 9,
 		sea: 2,
 		forest: 3,
 		industry: 0,
@@ -199,12 +199,12 @@ var countryPlayer = {
 		noHousing: 0
 	},
 	rules: {
-		citizens: 3,
-		housing: 2,
+		citizens: 1.5,
+		funding: 0,
 		levelHousing: 1,
-		fishing: 0,
-		hunting: 0,
-		consommation: 2
+		fishing: 0.5,
+		hunting: 0.5,
+		consommation: 1.2
 	},
 	population: {
 		fish: 500,

@@ -207,75 +207,74 @@ function addPlayerInfos() {
 	graphics.endFill();
 
 	game.add.text(360, 550, 'Birth Polity', style);
-	buttons.birth.normal = game.add.button(360, 590, 'on', endTurn, this, 2, 1, 0);
+	buttons.birth.normal = game.add.button(360, 590, 'on', birthPolityNormal, this, 2, 1, 0);
 	buttons.birth.normal.scale.set(0.5, 0.5);
 	game.add.text(390, 590, 'Normal', style2);
-	buttons.birth.studyPolity = game.add.button(360, 630, 'off', endTurn, this, 2, 1, 0);
+	buttons.birth.studyPolity = game.add.button(360, 630, 'off', birthPolityStudy, this, 2, 1, 0);
 	buttons.birth.studyPolity.scale.set(0.5, 0.5);
 	game.add.text(390, 630, 'Study Polity', style2);
-	buttons.birth.control = game.add.button(360, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.birth.control = game.add.button(360, 670, 'off', birthPolityControl, this, 2, 1, 0);
 	buttons.birth.control.scale.set(0.5, 0.5);
 	game.add.text(390, 670, 'Birth Control', style2);
 
 	game.add.text(490, 550, 'Funding', style);
-	buttons.funding.no = game.add.button(490, 590, 'on', endTurn, this, 2, 1, 0);
+	buttons.funding.no = game.add.button(490, 590, 'on', fundingNo, this, 2, 1, 0);
 	buttons.funding.no.scale.set(0.5, 0.5);
 	game.add.text(520, 590, 'No', style2);
-	buttons.funding.researchFund = game.add.button(490, 630, 'off', endTurn, this, 2, 1, 0);
+	buttons.funding.researchFund = game.add.button(490, 630, 'off', fundingResearchFund, this, 2, 1, 0);
 	buttons.funding.researchFund.scale.set(0.5, 0.5);
 	game.add.text(520, 630, 'Research Fund', style2);
-	buttons.funding.homeRenovation = game.add.button(490, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.funding.homeRenovation = game.add.button(490, 670, 'off', fundingHomeRenovation, this, 2, 1, 0);
 	buttons.funding.homeRenovation.scale.set(0.5, 0.5);
 	game.add.text(520, 670, 'Home Renovation', style2);
 
 	game.add.text(650, 550, 'Fishing', style);
-	buttons.fishing.repopulation = game.add.button(650, 590, 'off', endTurn, this, 2, 1, 0);
+	buttons.fishing.repopulation = game.add.button(650, 590, 'off', fishingRepopulation, this, 2, 1, 0);
 	buttons.fishing.repopulation.scale.set(0.5, 0.5);
 	game.add.text(680, 590, 'Repopulation', style2);
-	buttons.fishing.normal = game.add.button(650, 630, 'on', endTurn, this, 2, 1, 0);
+	buttons.fishing.normal = game.add.button(650, 630, 'on', fishingNormal, this, 2, 1, 0);
 	buttons.fishing.normal.scale.set(0.5, 0.5);
 	game.add.text(680, 630, 'Normal', style2);
-	buttons.fishing.intensive = game.add.button(650, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.fishing.intensive = game.add.button(650, 670, 'off', fishingIntensive, this, 2, 1, 0);
 	buttons.fishing.intensive.scale.set(0.5, 0.5);
 	game.add.text(680, 670, 'Intensive', style2);
 
 	game.add.text(790, 550, 'Hunting', style);
-	buttons.hunting.repopulation = game.add.button(790, 590, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.repopulation = game.add.button(790, 590, 'off', huntingRepopulation, this, 2, 1, 0);
 	buttons.hunting.repopulation.scale.set(0.5, 0.5);
 	game.add.text(820, 590, 'Repopulation', style2);
-	buttons.hunting.normal = game.add.button(790, 630, 'on', endTurn, this, 2, 1, 0);
+	buttons.hunting.normal = game.add.button(790, 630, 'on', huntingNormal, this, 2, 1, 0);
 	buttons.hunting.normal.scale.set(0.5, 0.5);
 	game.add.text(820, 630, 'Normal', style2);
-	buttons.hunting.intensive = game.add.button(790, 670, 'off', endTurn, this, 2, 1, 0);
+	buttons.hunting.intensive = game.add.button(790, 670, 'off', huntingIntensive, this, 2, 1, 0);
 	buttons.hunting.intensive.scale.set(0.5, 0.5);
 	game.add.text(820, 670, 'Intensive', style2);
 
 	game.add.text(930, 550, 'Consommation', style);
-	buttons.hunting.rationing = game.add.button(930, 590, 'off', endTurn, this, 2, 1, 0);
-	buttons.hunting.rationing.scale.set(0.5, 0.5);
+	buttons.consommation.rationing = game.add.button(930, 590, 'off', consommationRationing, this, 2, 1, 0);
+	buttons.consommation.rationing.scale.set(0.5, 0.5);
 	game.add.text(960, 590, 'Rationing', style2);
-	buttons.hunting.normal = game.add.button(930, 630, 'on', endTurn, this, 2, 1, 0);
-	buttons.hunting.normal.scale.set(0.5, 0.5);
+	buttons.consommation.normal = game.add.button(930, 630, 'on', consommationNormal, this, 2, 1, 0);
+	buttons.consommation.normal.scale.set(0.5, 0.5);
 	game.add.text(960, 630, 'Normal', style2);
-	buttons.hunting.intensive = game.add.button(930, 670, 'off', endTurn, this, 2, 1, 0);
-	buttons.hunting.intensive.scale.set(0.5, 0.5);
+	buttons.consommation.profusion = game.add.button(930, 670, 'off', consommationProfusion, this, 2, 1, 0);
+	buttons.consommation.profusion.scale.set(0.5, 0.5);
 	game.add.text(960, 670, 'Profusion', style2);
 
 	game.add.text(370, 720, 'Industry Development', style);
-	buttons.industry.yes = game.add.button(370, 750, 'off', endTurn, this, 2, 1, 0);
+	buttons.industry.yes = game.add.button(370, 750, 'off', industryDevYes, this, 2, 1, 0);
 	buttons.industry.yes.scale.set(0.5, 0.5);
 	game.add.text(400, 750, 'Yes', style2);
-	buttons.industry.no = game.add.button(450, 750, 'on', endTurn, this, 2, 1, 0);
+	buttons.industry.no = game.add.button(450, 750, 'on', industryDevNo, this, 2, 1, 0);
 	buttons.industry.no.scale.set(0.5, 0.5);
 	game.add.text(480, 750, 'No', style2);
 
 	game.add.text(700, 720, 'Housing Level', style);
 	game.add.text(720, 750, 'Actual :', style2);
 	countryPlayer.text.levelHousing = game.add.text(780, 750, countryPlayer.rules.levelHousing, style2);
-	buttons.levelHousing.upgrade = game.add.button(850, 750, 'on', endTurn, this, 2, 1, 0);
+	buttons.levelHousing.upgrade = game.add.button(850, 750, 'on', upgradeLevelHousing, this, 2, 1, 0);
 	buttons.levelHousing.upgrade.scale.set(4, 0.7);
 	countryPlayer.text.levelHousingUpgrade = game.add.text(880, 755, 'Upgrade : 50 Gold', style2);
-
 }
 function addMarkets() {
 	graphics = game.add.graphics(0, 0);
