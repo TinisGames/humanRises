@@ -254,8 +254,26 @@ function endTurn() {
 
 }
 function gameOver() {
-	console.log('game over');
+	var graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(625, 300, 150, 200);
+	graphics.endFill();
+
+	game.add.text(625, 300, 'Game over', style);
 }
 function victory(country) {
-	console.log(country.name, "win !");
+	var x, y;
+	switch (country.name) {
+		case 'Peaslands': x = 20; y = 20; break;
+		case 'Richiztan': x = 20; y = 580; break;
+		case 'Intelligencia': x = 1230; y = 20; break;
+		case 'Industrand': x = 1230; y = 580; break;
+		case 'Player': x = 625, y = 300; break;
+	}
+	var graphics = game.add.graphics(0, 0);
+	graphics.beginFill(0x000000);
+	graphics.drawRect(x, y, 150, 200);
+	graphics.endFill();
+
+	game.add.text(x, y, 'Win !', style);
 }

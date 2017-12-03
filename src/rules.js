@@ -1,3 +1,11 @@
+var style = {
+	font: "16px Arial", fill: "#fff",
+	align: "left",
+	boundsAlignH: "left",
+	boundsAlignV: "top",
+	wordWrap: true, wordWrapWidth: 300
+};
+
 function updateStats(country) {
 
 	// Order is important !
@@ -58,13 +66,29 @@ function consequences(country) {
 }
 
 function refreshStats(country) {
-	country.text.citizens.setText(country.citizens);
-	country.text.food.setText(country.food);
-	country.text.happiness.setText(country.happiness);
-	country.text.gold.setText(country.gold);
-	country.text.research.setText(country.research);
-	country.text.arable.setText(country.lands.arable);
-	country.text.sea.setText(country.lands.sea);
-	country.text.forest.setText(country.lands.forest);
-	country.text.housing.setText(country.lands.housing);
+	if (country.alive) {
+		country.text.citizens.setText(country.citizens);
+		country.text.food.setText(country.food);
+		country.text.happiness.setText(country.happiness);
+		country.text.gold.setText(country.gold);
+		country.text.research.setText(country.research);
+		country.text.arable.setText(country.lands.arable);
+		country.text.sea.setText(country.lands.sea);
+		country.text.forest.setText(country.lands.forest);
+		country.text.housing.setText(country.lands.housing);
+	} else {
+		var x, y;
+		switch (country.name) {
+			case 'Peaslands': x = 20; y = 20; break;
+			case 'Richiztan': x = 20; y = 580; break;
+			case 'Intelligencia': x = 1230; y = 20; break;
+			case 'Industrand': x = 1230; y = 580; break;
+		}
+		var graphics = game.add.graphics(0, 0);
+		graphics.beginFill(0x000000);
+		graphics.drawRect(x, y, 150, 200);
+		graphics.endFill();
+
+		game.add.text(x, y, 'Revolution !', style);
+	}
 }

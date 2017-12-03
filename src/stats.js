@@ -183,6 +183,7 @@ var country4 = {
 
 var countryPlayer = {
 	player: true,
+	alive: true,
 	name: 'Player',
 	citizens: 100,
 	food: 150,
