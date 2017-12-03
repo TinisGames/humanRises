@@ -246,9 +246,9 @@ function endTurn() {
 	refreshStats(country4);
 	refreshStats(countryPlayer);
 
-	// Refresh Market
+	// New Rules for other countries
 
-	// New Rules
+	// Refresh Market
 
 	// Global Event
 
