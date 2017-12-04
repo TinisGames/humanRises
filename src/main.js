@@ -19,7 +19,7 @@ var style2 = {
 var turn = 1;
 var turnText;
 
-var buttons = { birth: {}, funding: {}, fishing: {}, hunting: {}, consommation: {}, industry: {}, levelHousing: {}, markets: {} };
+var buttons = { birth: {}, funding: {}, fishing: {}, hunting: {}, consommation: {}, industry: {}, levelHousing: {}, markets: {}, help: {} };
 
 function preload() {
 	game.add.plugin(PhaserInput.Plugin);
@@ -39,6 +39,7 @@ function create() {
 	addCountry3();
 	addCountry4();
 	addCountryPlayer();
+	help();
 }
 
 function addCountry1() {
@@ -193,8 +194,12 @@ function addPlayerInfos() {
 	graphics.drawRect(350, 0, 700, 80);
 	graphics.endFill();
 
-	game.add.text(650, 20, 'Turn ', style);
-	turnText = game.add.text(700, 20, turn, style);
+	var helpButton = game.add.button(500, 10, 'endTurn', help, this, 2, 1, 0);
+	helpButton.scale.set(0.3, 0.2);
+	game.add.text(535, 30, 'Help', style);
+
+	game.add.text(680, 20, 'Turn ', style);
+	turnText = game.add.text(730, 20, turn, style);
 
 	var endButton = game.add.button(800, 10, 'endTurn', endTurn, this, 2, 1, 0);
 	endButton.scale.set(0.3, 0.2);
