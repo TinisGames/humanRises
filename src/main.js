@@ -192,7 +192,7 @@ function addCountryPlayer() {
 }
 function addPlayerInfos() {
 	// -- Informations
-	var graphics = game.add.sprite(470,0,'topBar');
+	var graphics = game.add.sprite(470, 0, 'topBar');
 	graphics.scale.set(4, 3);
 
 	var helpButton = game.add.button(530, 10, 'endTurn', help, this, 2, 1, 0);
@@ -207,10 +207,8 @@ function addPlayerInfos() {
 	game.add.text(825, 30, 'End Turn', style);
 
 	// -- Player rules
-	graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(350, 550, 700, 250);
-	graphics.endFill();
+	graphics = game.add.sprite(310, 535, 'politiesBar');
+	graphics.scale.set(8.2, 2.7);
 
 	game.add.text(360, 550, 'Birth Polity', style);
 	buttons.birth.normal = game.add.button(360, 590, 'on', birthPolityNormal, this, 2, 1, 0);
@@ -278,9 +276,9 @@ function addPlayerInfos() {
 	game.add.text(700, 720, 'Housing Level', style);
 	game.add.text(720, 750, 'Actual :', style2);
 	countryPlayer.text.levelHousing = game.add.text(780, 750, countryPlayer.rules.levelHousing, style2);
-	buttons.levelHousing.upgrade = game.add.button(850, 750, 'on', upgradeLevelHousing, this, 2, 1, 0);
+	buttons.levelHousing.upgrade = game.add.button(850, 730, 'on', upgradeLevelHousing, this, 2, 1, 0);
 	buttons.levelHousing.upgrade.scale.set(4, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(880, 755, 'Upgrade : 50 Gold', style2);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(880, 735, 'Upgrade : 50 Gold', style2);
 }
 function addMarkets() {
 	graphics = game.add.graphics(0, 0);
