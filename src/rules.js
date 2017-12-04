@@ -24,11 +24,13 @@ function updateStats(country) {
 	country.population.fish -= country.rules.fishing * (sea * 100);
 	country.population.wild -= country.rules.hunting * (forest * 50);
 
-	var researchVariation = 5 + (country.citizens / 10);
+	var researchVariation = 5 + (country.citizens / 100);
 	if (country.rules.citizens === 1.2) researchVariation += 3;
+	if (country.rules.funding === 0.3) researchVariation += 3;
 	country.research += Math.floor(researchVariation);
 
 	var goldVariation = (country.lands.industry * 20);
+	goldVariation -= country.rules.funding * (country.citizens / 100);
 	country.gold += Math.floor(goldVariation);
 
 	var happinessVariation = 5;
@@ -42,7 +44,8 @@ function updateStats(country) {
 	if (country.happiness < 0) country.happiness = 0;
 
 	country.citizens = Math.floor(country.citizens * country.rules.citizens);
-	var housingVariation = Math.floor(country.citizens / (country.rules.levelHousing * 100));
+	var nbBase = (country.rules.funding === 0.5) ? 120 : 100;
+	var housingVariation = Math.floor(country.citizens / (country.rules.levelHousing * nbBase));	
 	country.lands.arable -= (housingVariation - country.lands.housing);
 	if (country.lands.arable < 0) {
 		country.lands.noHousing -= country.lands.arable;
