@@ -27,6 +27,9 @@ function preload() {
 	game.load.image('endTurn', 'assets/images/Orange.png');
 	game.load.image('off', 'assets/images/buttonOff.png');
 	game.load.image('on', 'assets/images/buttonOn.png');
+	game.load.image('topBar', 'assets/images/topBar.png');
+	game.load.image('infoBar', 'assets/images/infoBar.png');
+	game.load.image('politiesBar', 'assets/images/politiesBar.png');
 }
 
 function create() {
@@ -189,21 +192,19 @@ function addCountryPlayer() {
 }
 function addPlayerInfos() {
 	// -- Informations
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(350, 0, 700, 80);
-	graphics.endFill();
+	var graphics = game.add.sprite(470,0,'topBar');
+	graphics.scale.set(4, 3);
 
-	var helpButton = game.add.button(500, 10, 'endTurn', help, this, 2, 1, 0);
-	helpButton.scale.set(0.3, 0.2);
-	game.add.text(535, 30, 'Help', style);
+	var helpButton = game.add.button(530, 10, 'endTurn', help, this, 2, 1, 0);
+	helpButton.scale.set(0.2, 0.2);
+	game.add.text(555, 30, 'Help', style);
 
-	game.add.text(680, 20, 'Turn ', style);
-	turnText = game.add.text(730, 20, turn, style);
+	game.add.text(680, 30, 'Turn ', style);
+	turnText = game.add.text(730, 30, turn, style);
 
 	var endButton = game.add.button(800, 10, 'endTurn', endTurn, this, 2, 1, 0);
-	endButton.scale.set(0.3, 0.2);
-	game.add.text(835, 30, 'End Turn', style);
+	endButton.scale.set(0.25, 0.2);
+	game.add.text(825, 30, 'End Turn', style);
 
 	// -- Player rules
 	graphics = game.add.graphics(0, 0);
