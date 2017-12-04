@@ -364,7 +364,7 @@ function endTurn() {
 function gameOver() {
 	var graphics = game.add.graphics(0, 0);
 	graphics.beginFill(0x000000);
-	graphics.drawRect(625, 300, 150, 200);
+	graphics.drawRect(625, 300, 150, 220);
 	graphics.endFill();
 
 	game.add.text(625, 300, 'Game over', style);

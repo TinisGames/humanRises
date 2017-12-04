@@ -5,7 +5,8 @@
 // fishing => -0.5 (repopulation), 0.5 (normal), 1 (intensive)
 // hunting => same as fishing
 // consommation => 1 (rationing), 1.2 (normal), 1.5 (profusion)
-// markets => sell X for 1, negative inverse exchange type    
+// markets => sell X for 1, negative inverse exchange type
+// industrialisation => change 1 arable land to 1 industry land    
 
 var country1 = {
 	name: 'Peaslands',
@@ -29,7 +30,8 @@ var country1 = {
 		levelHousing: 1,
 		fishing: 0.5,
 		hunting: 0.5,
-		consommation: 1.2
+		consommation: 1.2,
+		industrialisation: false
 	},
 	population: {
 		fish: 500,
@@ -72,7 +74,8 @@ var country2 = {
 		levelHousing: 3,
 		fishing: 0.5,
 		hunting: 0.5,
-		consommation: 1
+		consommation: 1,
+		industrialisation: false
 	},
 	population: {
 		fish: 200,
@@ -115,7 +118,8 @@ var country3 = {
 		levelHousing: 2,
 		fishing: 0.5,
 		hunting: 0.5,
-		consommation: 1.2
+		consommation: 1.2,
+		industrialisation: false
 	},
 	population: {
 		fish: 400,
@@ -159,7 +163,8 @@ var country4 = {
 		levelHousing: 2,
 		fishing: 0.5,
 		hunting: 0.5,
-		consommation: 1.5
+		consommation: 1.5,
+		industrialisation: true
 	},
 	population: {
 		fish: 150,
@@ -204,7 +209,8 @@ var countryPlayer = {
 		levelHousing: 1,
 		fishing: 0.5,
 		hunting: 0.5,
-		consommation: 1.2
+		consommation: 1.2,
+		industrialisation: false
 	},
 	population: {
 		fish: 500,

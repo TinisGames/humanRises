@@ -104,12 +104,12 @@ function consommationProfusion() {
 // -------------------------------------------
 
 function industryDevYes() {
-	//countryPlayer.rules.citizens = 1.2;
+	countryPlayer.rules.industrialisation = true;
 	buttons.industry.yes.loadTexture('on');
 	buttons.industry.no.loadTexture('off');
 }
 function industryDevNo() {
-	//countryPlayer.rules.citizens = 1.1;
+	countryPlayer.rules.industrialisation = false;
 	buttons.industry.yes.loadTexture('off');
 	buttons.industry.no.loadTexture('on');
 }
@@ -117,5 +117,12 @@ function industryDevNo() {
 // -------------------------------------------
 
 function upgradeLevelHousing(){
-
+	var priceToPay = countryPlayer.rules.levelHousing * 50;
+	if (countryPlayer.gold >= priceToPay){
+		countryPlayer.gold -= priceToPay;
+		countryPlayer.rules.levelHousing++;
+		countryPlayer.text.levelHousing.setText(countryPlayer.rules.levelHousing);
+		priceToPay +=50;
+		countryPlayer.text.levelHousingUpgrade.setText('Upgrade : ' + priceToPay + ' Gold');
+	} 
 }

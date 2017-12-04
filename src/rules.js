@@ -38,6 +38,8 @@ function updateStats(country) {
 	if (country.rules.citizens === 1.1) happinessVariation -= 5;
 	if (country.lands.noHousing > 0) happinessVariation -= (country.lands.noHousing * 3);
 	country.happiness += Math.floor(happinessVariation);
+	if (country.happiness > 100) country.happiness = 100;
+	if (country.happiness < 0) country.happiness = 0;
 
 	country.citizens = Math.floor(country.citizens * country.rules.citizens);
 	var housingVariation = Math.floor(country.citizens / (country.rules.levelHousing * 100));
@@ -49,6 +51,12 @@ function updateStats(country) {
 		country.lands.housing = housingVariation;
 		country.lands.noHousing = 0;
 	}
+
+	if (country.rules.industrialisation && (country.lands.arable !== 0)) {
+		country.lands.arable--;
+		country.lands.industry++;
+	}
+
 }
 
 function consequences(country) {
@@ -75,6 +83,7 @@ function refreshStats(country) {
 		country.text.sea.setText(country.lands.sea);
 		country.text.forest.setText(country.lands.forest);
 		country.text.housing.setText(country.lands.housing);
+		country.text.industry.setText(country.lands.industry);
 	} else {
 		var x, y;
 		switch (country.name) {
@@ -92,6 +101,6 @@ function refreshStats(country) {
 	}
 }
 
-function refreshMarket(country){
+function refreshMarket(country) {
 
 }
