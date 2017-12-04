@@ -223,5 +223,5 @@ var countryPlayer = {
 			research: 0
 		}
 	},
-	text: {}
+	text: {markets: {} }
 }

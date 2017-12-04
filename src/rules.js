@@ -85,16 +85,21 @@ function refreshStats(country) {
 		country.text.housing.setText(country.lands.housing);
 		country.text.industry.setText(country.lands.industry);
 	} else {
-		var x, y;
+		var x, y, x2, y2;
 		switch (country.name) {
-			case 'Peaslands': x = 20; y = 20; break;
-			case 'Richiztan': x = 20; y = 580; break;
-			case 'Intelligencia': x = 1230; y = 20; break;
-			case 'Industrand': x = 1230; y = 580; break;
+			case 'Peaslands': x = 20; y = 20; x2 = 250; y2 = 150; break;
+			case 'Richiztan': x = 20; y = 580; x2 = 150; y2 = 350; break;
+			case 'Intelligencia': x = 1230; y = 20; x2 = 870; y2 = 150; break;
+			case 'Industrand': x = 1230; y = 580; x2 = 970; y2 = 350; break;
 		}
 		var graphics = game.add.graphics(0, 0);
 		graphics.beginFill(0x000000);
 		graphics.drawRect(x, y, 150, 220);
+		graphics.endFill();
+
+		graphics = game.add.graphics(0, 0);
+		graphics.beginFill(0x000000);
+		graphics.drawRect(x2, y2, 280, 150);
 		graphics.endFill();
 
 		game.add.text(x, y, 'Revolution !', style);

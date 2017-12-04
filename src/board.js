@@ -116,13 +116,63 @@ function industryDevNo() {
 
 // -------------------------------------------
 
-function upgradeLevelHousing(){
+function upgradeLevelHousing() {
 	var priceToPay = countryPlayer.rules.levelHousing * 50;
-	if (countryPlayer.gold >= priceToPay){
+	if (countryPlayer.gold >= priceToPay) {
 		countryPlayer.gold -= priceToPay;
 		countryPlayer.rules.levelHousing++;
 		countryPlayer.text.levelHousing.setText(countryPlayer.rules.levelHousing);
-		priceToPay +=50;
+		countryPlayer.text.gold.setText(countryPlayer.gold);
+		priceToPay += 50;
 		countryPlayer.text.levelHousingUpgrade.setText('Upgrade : ' + priceToPay + ' Gold');
-	} 
+	}
+}
+
+// -------------------------------------------
+
+function foodForGold() {
+	exchange(20, 'gold', 'food', country1);
+}
+
+function foodForResearch() {
+	exchange(15, 'research', 'food', country1);
+}
+
+function goldForFood() {
+	exchange(30, 'food', 'gold', country2);
+}
+
+function goldForResearch() {
+	exchange(20, 'research', 'gold', country2);
+}
+
+function researchForFood() {
+	exchange(20, 'food', 'research', country3);
+}
+
+function researchForGold() {
+	exchange(30, 'gold', 'research', country3);
+}
+
+function goldForFood2() {
+	exchange(20, 'gold', 'gold', country4);
+}
+
+function goldForResearch2() {
+	exchange(30, 'research', 'gold', country4);
+}
+
+function exchange(price, what, forWhat, country) {
+	if (countryPlayer[what] >= price && country[forWhat] >= 10) {
+		countryPlayer[what] -= price;
+		countryPlayer[forWhat] += 10;
+		country[what] -= 10;
+		country[forWhat] += price;
+
+		country.text[forWhat].setText(country[forWhat]);
+		country.text[what].setText(country[what]);
+
+		countryPlayer.text[forWhat].setText(countryPlayer[forWhat]);
+		countryPlayer.text[what].setText(countryPlayer[what]);
+	}
 }
