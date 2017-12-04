@@ -182,10 +182,10 @@ function exchange(price, what, forWhat, country) {
 var helpText = {};
 
 function help() {
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(200, 100, 1000, 440);
-	graphics.endFill();
+	helpText.graphics = game.add.graphics(0, 0);
+	helpText.graphics.beginFill(0x000000);
+	helpText.graphics.drawRect(200, 100, 1000, 440);
+	helpText.graphics.endFill();
 
 	var style3 = {
 		font: "20px Arial", fill: "#fff",
@@ -203,25 +203,46 @@ function help() {
 		wordWrap: true, wordWrapWidth: 960
 	};
 
-	helpText.title = game.add.text(650,110,'Human Rises', style3);
-	helpText.history1 =  game.add.text(0,0,'Humans... The most you have, the worse it is... They use arable land for their own comfort, they exploit the oceans and forests to feed themselves until the species are extinct and eat like a horse... At this rate, they will eventually disappear...', style2);
+	helpText.title = game.add.text(650, 110, 'Human Rises', style3);
+	helpText.history1 = game.add.text(0, 0, 'Humans... The most you have, the worse it is... They use arable land for their own comfort, they exploit the oceans and forests to feed themselves until the species are extinct and eat like a horse... At this rate, they will eventually disappear...', style2);
 	helpText.history1.setTextBounds(240, 150, 960, 100);
-	helpText.history2 =  game.add.text(0,0,'Fortunately, they have the intelligence to improve the situation. Will they have time, however, to use it for survival ?', style2);
+	helpText.history2 = game.add.text(0, 0, 'Fortunately, they have the intelligence to improve the situation. Will they have time, however, to use it for survival ?', style2);
 	helpText.history2.setTextBounds(240, 200, 960, 100);
-	helpText.goal =  game.add.text(0,0,'The goal of the game is to reach 1000 Research points before Happiness reaches 0. You can do this by interacting with the politics of your country and trading with your neighbours.', style2);
+	helpText.goal = game.add.text(0, 0, 'The goal of the game is to reach 1000 Research points before Happiness reaches 0. You can do this by interacting with the politics of your country and trading with your neighbours.', style2);
 	helpText.goal.setTextBounds(240, 230, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'What policies can you pursue ?', style2);
+	helpText.polity1 = game.add.text(0, 0, 'What policies can you pursue ?', style2);
 	helpText.polity1.setTextBounds(240, 280, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Birth Polity : choose between Normal, Study Polity (use Gold for decrease birth) and Birth Control (drastically reduce births despite Happiness)', style2);
-	helpText.polity1.setTextBounds(240, 310, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Funding : choose between No funding, Research Fund (use Gold for increase Research) and Home Renovation (use Gold for reduce Housing needs)', style2);
-	helpText.polity1.setTextBounds(240, 340, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Fishing and Hunting : choose between Repopulation (let the animals reproduce, no extra Food), Normal (little Food for species survival) and Intensive (lot of Food against species destruction)', style2);
-	helpText.polity1.setTextBounds(240, 390, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Consommation : choose between Rationing (less Food consumed, less Happiness), Normal and Profusion (more Food consumed, more Happiness)', style2);
-	helpText.polity1.setTextBounds(240, 440, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Industry Development : choose to sacrifice Arable land against Industry land the next turn', style2);
-	helpText.polity1.setTextBounds(240, 490, 960, 100);
-	helpText.polity1 =  game.add.text(0,0,'- Housing Level : increase this statistic to reduce Housing needs', style2);
-	helpText.polity1.setTextBounds(240, 510, 960, 100);
+	helpText.polity2 = game.add.text(0, 0, '- Birth Polity : choose between Normal, Study Polity (use Gold for decrease birth) and Birth Control (drastically reduce births despite Happiness)', style2);
+	helpText.polity2.setTextBounds(240, 310, 960, 100);
+	helpText.polity3 = game.add.text(0, 0, '- Funding : choose between No funding, Research Fund (use Gold for increase Research) and Home Renovation (use Gold for reduce Housing needs)', style2);
+	helpText.polity3.setTextBounds(240, 340, 960, 100);
+	helpText.polity4 = game.add.text(0, 0, '- Fishing and Hunting : choose between Repopulation (let the animals reproduce, no extra Food), Normal (little Food for species survival) and Intensive (lot of Food against species destruction)', style2);
+	helpText.polity4.setTextBounds(240, 390, 960, 100);
+	helpText.polity5 = game.add.text(0, 0, '- Consommation : choose between Rationing (less Food consumed, less Happiness), Normal and Profusion (more Food consumed, more Happiness)', style2);
+	helpText.polity5.setTextBounds(240, 440, 960, 100);
+	helpText.polity6 = game.add.text(0, 0, '- Industry Development : choose to sacrifice Arable land against Industry land the next turn', style2);
+	helpText.polity6.setTextBounds(240, 490, 960, 100);
+	helpText.polity7 = game.add.text(0, 0, '- Housing Level : increase this statistic to reduce Housing needs', style2);
+	helpText.polity7.setTextBounds(240, 510, 960, 100);
+
+	helpText.button = game.add.button(1000, 480, 'endTurn', closeHelp, this, 2, 1, 0);
+	helpText.button.scale.set(0.3, 0.2);
+	helpText.buttonText = game.add.text(1040, 500, 'Close', style);
+}
+
+function closeHelp() {
+	helpText.graphics.destroy();
+	helpText.title.destroy();
+	helpText.history1.destroy();
+	helpText.history2.destroy();
+	helpText.goal.destroy();
+	helpText.polity1.destroy();
+	helpText.polity2.destroy();
+	helpText.polity3.destroy();
+	helpText.polity4.destroy();
+	helpText.polity5.destroy();
+	helpText.polity6.destroy();
+	helpText.polity7.destroy();
+	helpText.button.destroy();
+	helpText.buttonText.destroy();
 }
