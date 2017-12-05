@@ -16,8 +16,8 @@ function updateStats(country) {
 	var wild = country.population.wild;
 
 	newFood += country.lands.arable * 20;
-	if (country.rules.hunting) newFood += forest * 100;
-	if (country.rules.fishing) newFood += sea * 50;
+	if (country.rules.hunting > 0) newFood += country.rules.hunting * (forest * 100);
+	if (country.rules.fishing > 0) newFood += country.rules.fishing * (sea * 50);
 	var consommation = country.citizens * country.rules.citizens;
 	country.food = Math.floor(country.food + newFood - consommation);
 	if (country.food < 0) country.food = 0;
