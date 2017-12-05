@@ -288,10 +288,10 @@ function addMarkets() {
 	game.add.text(330, 370, 'Market', style);
 	buttons.markets.goldForFood = game.add.button(250, 400, 'on', goldForFood, this, 2, 1, 0);
 	buttons.markets.goldForFood.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(305, 405, '10 Gold For 30 Food', style2);
+	countryPlayer.text.markets.goldForFood = game.add.text(305, 405, '10 Gold For 30 Food', style2);
 	buttons.markets.goldForResearch = game.add.button(250, 450, 'on', goldForResearch, this, 2, 1, 0);
 	buttons.markets.goldForResearch.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(290, 455, '10 Gold For 20 Research', style2);
+	countryPlayer.text.markets.goldForResearch = game.add.text(290, 455, '10 Gold For 20 Research', style2);
 
 	graphics = game.add.sprite(880, 165, 'politiesBar');
 	graphics.scale.set(2.7, 1.1);
@@ -299,10 +299,10 @@ function addMarkets() {
 	game.add.text(980, 170, 'Market', style);
 	buttons.markets.researchForFood = game.add.button(900, 200, 'on', researchForFood, this, 2, 1, 0);
 	buttons.markets.researchForFood.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(930, 205, '10 Research For 20 Food', style2);
+	countryPlayer.text.markets.researchForFood = game.add.text(930, 205, '10 Research For 20 Food', style2);
 	buttons.markets.researchForGold = game.add.button(900, 250, 'on', researchForGold, this, 2, 1, 0);
 	buttons.markets.researchForGold.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(930, 255, '10 Research For 30 Gold', style2);
+	countryPlayer.text.markets.researchForGold = game.add.text(930, 255, '10 Research For 30 Gold', style2);
 
 	graphics = game.add.sprite(920, 365, 'politiesBar');
 	graphics.scale.set(2.7, 1.1);
@@ -310,10 +310,10 @@ function addMarkets() {
 	game.add.text(1020, 370, 'Market', style);
 	buttons.markets.goldForFood2 = game.add.button(940, 400, 'on', goldForFood2, this, 2, 1, 0);
 	buttons.markets.goldForFood2.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(985, 405, '10 Gold For 20 Food', style2);
+	countryPlayer.text.markets.goldForFood2 = game.add.text(985, 405, '10 Gold For 20 Food', style2);
 	buttons.markets.goldForResearch2 = game.add.button(940, 450, 'on', goldForResearch2, this, 2, 1, 0);
 	buttons.markets.goldForResearch2.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(985, 455, '10 Gold For 30 Research', style2);
+	countryPlayer.text.markets.goldForResearch2 = game.add.text(985, 455, '10 Gold For 30 Research', style2);
 }
 function addLinks() {
 	var graphics = game.add.graphics(0, 0);

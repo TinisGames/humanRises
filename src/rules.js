@@ -45,7 +45,7 @@ function updateStats(country) {
 
 	country.citizens = Math.floor(country.citizens * country.rules.citizens);
 	var nbBase = (country.rules.funding === 0.5) ? 120 : 100;
-	var housingVariation = Math.floor(country.citizens / (country.rules.levelHousing * nbBase));	
+	var housingVariation = Math.floor(country.citizens / (country.rules.levelHousing * nbBase));
 	country.lands.arable -= (housingVariation - country.lands.housing);
 	if (country.lands.arable < 0) {
 		country.lands.noHousing -= country.lands.arable;
@@ -90,22 +90,43 @@ function refreshStats(country) {
 	} else {
 		var x, y, x2, y2;
 		switch (country.name) {
-			case 'Peaslands': x = 20; y = 20; x2 = 250; y2 = 150; break;
-			case 'Richiztan': x = 20; y = 580; x2 = 150; y2 = 350; break;
-			case 'Intelligencia': x = 1230; y = 20; x2 = 870; y2 = 150; break;
-			case 'Industrand': x = 1230; y = 580; x2 = 970; y2 = 350; break;
+			case 'Peaslands':
+				buttons.markets.foodForGold.destroy();
+				buttons.markets.foodForResearch.destroy();
+				countryPlayer.text.markets.foodForGold.destroy();
+				countryPlayer.text.markets.foodForResearch.destroy();
+				break;
+			case 'Richiztan':
+				buttons.markets.goldForFood.destroy();
+				buttons.markets.goldForResearch.destroy();
+				countryPlayer.text.markets.goldForFood.destroy();
+				countryPlayer.text.markets.goldForResearch.destroy();
+				break;
+			case 'Intelligencia':
+				buttons.markets.researchForGold.destroy();
+				buttons.markets.researchForFood.destroy();
+				countryPlayer.text.markets.researchForGold.destroy();
+				countryPlayer.text.markets.researchForFood.destroy();
+				break;
+			case 'Industrand':
+				buttons.markets.goldForFood2.destroy();
+				buttons.markets.goldForResearch2.destroy();
+				countryPlayer.text.markets.goldForFood2.destroy();
+				countryPlayer.text.markets.goldForResearch2.destroy();
+				break;
 		}
-		var graphics = game.add.graphics(0, 0);
-		graphics.beginFill(0x000000);
-		graphics.drawRect(x, y, 150, 220);
-		graphics.endFill();
 
-		graphics = game.add.graphics(0, 0);
-		graphics.beginFill(0x000000);
-		graphics.drawRect(x2, y2, 280, 150);
-		graphics.endFill();
+		// var graphics = game.add.graphics(0, 0);
+		// graphics.beginFill(0x000000);
+		// graphics.drawRect(x, y, 150, 220);
+		// graphics.endFill();
 
-		game.add.text(x, y, 'Revolution !', style);
+		// graphics = game.add.graphics(0, 0);
+		// graphics.beginFill(0x000000);
+		// graphics.drawRect(x2, y2, 280, 150);
+		// graphics.endFill();
+
+		// game.add.text(x, y, 'Revolution !', style);
 	}
 }
 
