@@ -46,149 +46,139 @@ function create() {
 }
 
 function addCountry1() {
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(20, 20, 150, 220);
-	graphics.endFill();
+	var graphics = game.add.sprite(5, 15, 'infoBar');
+	graphics.scale.set(3.5, 4);
 
-	game.add.text(20, 20, 'Citizens :', style);
-	game.add.text(20, 40, 'Food :', style);
-	game.add.text(20, 60, 'Happiness :', style);
-	game.add.text(20, 80, 'Gold :', style);
-	game.add.text(20, 100, 'Research :', style);
-	game.add.text(20, 120, 'Lands :', style);
-	game.add.text(20, 140, '- Arable :', style);
-	game.add.text(20, 160, '- Sea : :', style);
-	game.add.text(20, 180, '- Forest :', style);
-	game.add.text(20, 200, '- Industry :', style);
-	game.add.text(20, 220, '- Housing :', style);
+	game.add.text(55, 105, 'Citizens :', style);
+	game.add.text(55, 125, 'Food :', style);
+	game.add.text(55, 145, 'Happiness :', style);
+	game.add.text(55, 165, 'Gold :', style);
+	game.add.text(55, 185, 'Research :', style);
+	game.add.text(55, 205, 'Lands :', style);
+	game.add.text(70, 225, 'Arable :', style);
+	game.add.text(70, 245, 'Sea : :', style);
+	game.add.text(70, 265, 'Forest :', style);
+	game.add.text(70, 285, 'Industry :', style);
+	game.add.text(70, 305, 'Housing :', style);
 
-	country1.text.citizens = game.add.text(120, 20, country1.citizens, style);
-	country1.text.food = game.add.text(120, 40, country1.food, style);
-	country1.text.happiness = game.add.text(120, 60, country1.happiness, style);
-	country1.text.gold = game.add.text(120, 80, country1.gold, style);
-	country1.text.research = game.add.text(120, 100, country1.research, style);
-	country1.text.arable = game.add.text(120, 140, country1.lands.arable, style);
-	country1.text.sea = game.add.text(120, 160, country1.lands.sea, style);
-	country1.text.forest = game.add.text(120, 180, country1.lands.forest, style);
-	country1.text.industry = game.add.text(120, 200, country1.lands.industry, style);
-	country1.text.housing = game.add.text(120, 220, country1.lands.housing, style);
+	country1.text.citizens = game.add.text(155, 105, country1.citizens, style);
+	country1.text.food = game.add.text(155, 125, country1.food, style);
+	country1.text.happiness = game.add.text(155, 145, country1.happiness, style);
+	country1.text.gold = game.add.text(155, 165, country1.gold, style);
+	country1.text.research = game.add.text(155, 185, country1.research, style);
+	country1.text.arable = game.add.text(155, 225, country1.lands.arable, style);
+	country1.text.sea = game.add.text(155, 245, country1.lands.sea, style);
+	country1.text.forest = game.add.text(155, 265, country1.lands.forest, style);
+	country1.text.industry = game.add.text(155, 285, country1.lands.industry, style);
+	country1.text.housing = game.add.text(155, 305, country1.lands.housing, style);
 }
 function addCountry2() {
-	graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(20, 580, 150, 220);
-	graphics.endFill();
+	var graphics = game.add.sprite(5, 410, 'infoBar');
+	graphics.scale.set(3.5, 4);
 
-	game.add.text(20, 580, 'Citizens :', style);
-	game.add.text(20, 600, 'Food :', style);
-	game.add.text(20, 620, 'Happiness :', style);
-	game.add.text(20, 640, 'Gold :', style);
-	game.add.text(20, 660, 'Research :', style);
-	game.add.text(20, 680, 'Lands :', style);
-	game.add.text(20, 700, '- Arable :', style);
-	game.add.text(20, 720, '- Sea : :', style);
-	game.add.text(20, 740, '- Forest :', style);
-	game.add.text(20, 760, '- Industry :', style);
-	game.add.text(20, 780, '- Housing :', style);
+	game.add.text(55, 500, 'Citizens :', style);
+	game.add.text(55, 520, 'Food :', style);
+	game.add.text(55, 540, 'Happiness :', style);
+	game.add.text(55, 560, 'Gold :', style);
+	game.add.text(55, 580, 'Research :', style);
+	game.add.text(55, 600, 'Lands :', style);
+	game.add.text(70, 620, 'Arable :', style);
+	game.add.text(70, 640, 'Sea : :', style);
+	game.add.text(70, 660, 'Forest :', style);
+	game.add.text(70, 680, 'Industry :', style);
+	game.add.text(70, 700, 'Housing :', style);
 
-	country2.text.citizens = game.add.text(120, 580, country2.citizens, style);
-	country2.text.food = game.add.text(120, 600, country2.food, style);
-	country2.text.happiness = game.add.text(120, 620, country2.happiness, style);
-	country2.text.gold = game.add.text(120, 640, country2.gold, style);
-	country2.text.research = game.add.text(120, 660, country2.research, style);
-	country2.text.arable = game.add.text(120, 700, country2.lands.arable, style);
-	country2.text.sea = game.add.text(120, 720, country2.lands.sea, style);
-	country2.text.forest = game.add.text(120, 740, country2.lands.forest, style);
-	country2.text.industry = game.add.text(120, 760, country2.lands.industry, style);
-	country2.text.housing = game.add.text(120, 780, country2.lands.housing, style);
+	country2.text.citizens = game.add.text(155, 500, country2.citizens, style);
+	country2.text.food = game.add.text(155, 520, country2.food, style);
+	country2.text.happiness = game.add.text(155, 540, country2.happiness, style);
+	country2.text.gold = game.add.text(155, 560, country2.gold, style);
+	country2.text.research = game.add.text(155, 580, country2.research, style);
+	country2.text.arable = game.add.text(155, 620, country2.lands.arable, style);
+	country2.text.sea = game.add.text(155, 640, country2.lands.sea, style);
+	country2.text.forest = game.add.text(155, 660, country2.lands.forest, style);
+	country2.text.industry = game.add.text(155, 680, country2.lands.industry, style);
+	country2.text.housing = game.add.text(155, 700, country2.lands.housing, style);
 }
 function addCountry3() {
-	graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(1230, 20, 150, 220);
-	graphics.endFill();
+	var graphics = game.add.sprite(1170, 15, 'infoBar');
+	graphics.scale.set(3.5, 4);
 
-	game.add.text(1230, 20, 'Citizens :', style);
-	game.add.text(1230, 40, 'Food :', style);
-	game.add.text(1230, 60, 'Happiness :', style);
-	game.add.text(1230, 80, 'Gold :', style);
-	game.add.text(1230, 100, 'Research :', style);
-	game.add.text(1230, 120, 'Lands :', style);
-	game.add.text(1230, 140, '- Arable :', style);
-	game.add.text(1230, 160, '- Sea : :', style);
-	game.add.text(1230, 180, '- Forest :', style);
-	game.add.text(1230, 200, '- Industry :', style);
-	game.add.text(1230, 220, '- Housing :', style);
+	game.add.text(1220, 105, 'Citizens :', style);
+	game.add.text(1220, 125, 'Food :', style);
+	game.add.text(1220, 145, 'Happiness :', style);
+	game.add.text(1220, 165, 'Gold :', style);
+	game.add.text(1220, 185, 'Research :', style);
+	game.add.text(1220, 205, 'Lands :', style);
+	game.add.text(1235, 225, 'Arable :', style);
+	game.add.text(1235, 245, 'Sea : :', style);
+	game.add.text(1235, 265, 'Forest :', style);
+	game.add.text(1235, 285, 'Industry :', style);
+	game.add.text(1235, 305, 'Housing :', style);
 
-	country3.text.citizens = game.add.text(1330, 20, country3.citizens, style);
-	country3.text.food = game.add.text(1330, 40, country3.food, style);
-	country3.text.happiness = game.add.text(1330, 60, country3.happiness, style);
-	country3.text.gold = game.add.text(1330, 80, country3.gold, style);
-	country3.text.research = game.add.text(1330, 100, country3.research, style);
-	country3.text.arable = game.add.text(1330, 140, country3.lands.arable, style);
-	country3.text.sea = game.add.text(1330, 160, country3.lands.sea, style);
-	country3.text.forest = game.add.text(1330, 180, country3.lands.forest, style);
-	country3.text.industry = game.add.text(1330, 200, country3.lands.industry, style);
-	country3.text.housing = game.add.text(1330, 220, country3.lands.housing, style);
+	country3.text.citizens = game.add.text(1320, 105, country3.citizens, style);
+	country3.text.food = game.add.text(1320, 125, country3.food, style);
+	country3.text.happiness = game.add.text(1320, 145, country3.happiness, style);
+	country3.text.gold = game.add.text(1320, 165, country3.gold, style);
+	country3.text.research = game.add.text(1320, 185, country3.research, style);
+	country3.text.arable = game.add.text(1320, 225, country3.lands.arable, style);
+	country3.text.sea = game.add.text(1320, 245, country3.lands.sea, style);
+	country3.text.forest = game.add.text(1320, 265, country3.lands.forest, style);
+	country3.text.industry = game.add.text(1320, 285, country3.lands.industry, style);
+	country3.text.housing = game.add.text(1320, 305, country3.lands.housing, style);
 }
 function addCountry4() {
-	graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(1230, 580, 150, 220);
-	graphics.endFill();
+	var graphics = game.add.sprite(1170, 410, 'infoBar');
+	graphics.scale.set(3.5, 4);
 
-	game.add.text(1230, 580, 'Citizens :', style);
-	game.add.text(1230, 600, 'Food :', style);
-	game.add.text(1230, 620, 'Happiness :', style);
-	game.add.text(1230, 640, 'Gold :', style);
-	game.add.text(1230, 660, 'Research :', style);
-	game.add.text(1230, 680, 'Lands :', style);
-	game.add.text(1230, 700, '- Arable :', style);
-	game.add.text(1230, 720, '- Sea : :', style);
-	game.add.text(1230, 740, '- Forest :', style);
-	game.add.text(1230, 760, '- Industry :', style);
-	game.add.text(1230, 780, '- Housing :', style);
+	game.add.text(1220, 500, 'Citizens :', style);
+	game.add.text(1220, 520, 'Food :', style);
+	game.add.text(1220, 540, 'Happiness :', style);
+	game.add.text(1220, 560, 'Gold :', style);
+	game.add.text(1220, 580, 'Research :', style);
+	game.add.text(1220, 600, 'Lands :', style);
+	game.add.text(1235, 620, 'Arable :', style);
+	game.add.text(1235, 640, 'Sea : :', style);
+	game.add.text(1235, 660, 'Forest :', style);
+	game.add.text(1235, 680, 'Industry :', style);
+	game.add.text(1235, 700, 'Housing :', style);
 
-	country4.text.citizens = game.add.text(1330, 580, country4.citizens, style);
-	country4.text.food = game.add.text(1330, 600, country4.food, style);
-	country4.text.happiness = game.add.text(1330, 620, country4.happiness, style);
-	country4.text.gold = game.add.text(1330, 640, country4.gold, style);
-	country4.text.research = game.add.text(1330, 660, country4.research, style);
-	country4.text.arable = game.add.text(1330, 700, country4.lands.arable, style);
-	country4.text.sea = game.add.text(1330, 720, country4.lands.sea, style);
-	country4.text.forest = game.add.text(1330, 740, country4.lands.forest, style);
-	country4.text.industry = game.add.text(1330, 760, country4.lands.industry, style);
-	country4.text.housing = game.add.text(1330, 780, country4.lands.housing, style);
+	country4.text.citizens = game.add.text(1320, 500, country4.citizens, style);
+	country4.text.food = game.add.text(1320, 520, country4.food, style);
+	country4.text.happiness = game.add.text(1320, 540, country4.happiness, style);
+	country4.text.gold = game.add.text(1320, 560, country4.gold, style);
+	country4.text.research = game.add.text(1320, 580, country4.research, style);
+	country4.text.arable = game.add.text(1320, 620, country4.lands.arable, style);
+	country4.text.sea = game.add.text(1320, 640, country4.lands.sea, style);
+	country4.text.forest = game.add.text(1320, 660, country4.lands.forest, style);
+	country4.text.industry = game.add.text(1320, 680, country4.lands.industry, style);
+	country4.text.housing = game.add.text(1320, 700, country4.lands.housing, style);
 }
 function addCountryPlayer() {
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(625, 300, 150, 220);
-	graphics.endFill();
+	var graphics = game.add.sprite(585, 130, 'infoBar');
+	graphics.scale.set(3.5, 4);
 
-	game.add.text(625, 300, 'Citizens :', style);
-	game.add.text(625, 320, 'Food :', style);
-	game.add.text(625, 340, 'Happiness :', style);
-	game.add.text(625, 360, 'Gold :', style);
-	game.add.text(625, 380, 'Research :', style);
-	game.add.text(625, 400, 'Lands :', style);
-	game.add.text(625, 420, '- Arable :', style);
-	game.add.text(625, 440, '- Sea : :', style);
-	game.add.text(625, 460, '- Forest :', style);
-	game.add.text(625, 480, '- Industry :', style);
-	game.add.text(625, 500, '- Housing :', style);
+	game.add.text(635, 220, 'Citizens :', style);
+	game.add.text(635, 240, 'Food :', style);
+	game.add.text(635, 260, 'Happiness :', style);
+	game.add.text(635, 280, 'Gold :', style);
+	game.add.text(635, 300, 'Research :', style);
+	game.add.text(635, 320, 'Lands :', style);
+	game.add.text(650, 340, 'Arable :', style);
+	game.add.text(650, 360, 'Sea : :', style);
+	game.add.text(650, 380, 'Forest :', style);
+	game.add.text(650, 400, 'Industry :', style);
+	game.add.text(650, 420, 'Housing :', style);
 
-	countryPlayer.text.citizens = game.add.text(725, 300, countryPlayer.citizens, style);
-	countryPlayer.text.food = game.add.text(725, 320, countryPlayer.food, style);
-	countryPlayer.text.happiness = game.add.text(725, 340, countryPlayer.happiness, style);
-	countryPlayer.text.gold = game.add.text(725, 360, countryPlayer.gold, style);
-	countryPlayer.text.research = game.add.text(725, 380, countryPlayer.research, style);
-	countryPlayer.text.arable = game.add.text(725, 420, countryPlayer.lands.arable, style);
-	countryPlayer.text.sea = game.add.text(725, 440, countryPlayer.lands.sea, style);
-	countryPlayer.text.forest = game.add.text(725, 460, countryPlayer.lands.forest, style);
-	countryPlayer.text.industry = game.add.text(725, 480, countryPlayer.lands.industry, style);
-	countryPlayer.text.housing = game.add.text(725, 500, countryPlayer.lands.housing, style);
+	countryPlayer.text.citizens = game.add.text(735, 220, countryPlayer.citizens, style);
+	countryPlayer.text.food = game.add.text(735, 240, countryPlayer.food, style);
+	countryPlayer.text.happiness = game.add.text(735, 260, countryPlayer.happiness, style);
+	countryPlayer.text.gold = game.add.text(735, 280, countryPlayer.gold, style);
+	countryPlayer.text.research = game.add.text(735, 300, countryPlayer.research, style);
+	countryPlayer.text.arable = game.add.text(735, 340, countryPlayer.lands.arable, style);
+	countryPlayer.text.sea = game.add.text(735, 360, countryPlayer.lands.sea, style);
+	countryPlayer.text.forest = game.add.text(735, 380, countryPlayer.lands.forest, style);
+	countryPlayer.text.industry = game.add.text(735, 400, countryPlayer.lands.industry, style);
+	countryPlayer.text.housing = game.add.text(735, 420, countryPlayer.lands.housing, style);
 }
 function addPlayerInfos() {
 	// -- Informations
@@ -292,16 +282,16 @@ function addMarkets() {
 	buttons.markets.foodForResearch.scale.set(5, 0.7);
 	countryPlayer.text.markets.foodForResearch = game.add.text(310, 255, '10 Food For 15 Research', style2);
 
-	graphics = game.add.sprite(160, 365, 'politiesBar');
+	graphics = game.add.sprite(230, 365, 'politiesBar');
 	graphics.scale.set(2.7, 1.1);
 
-	game.add.text(260, 370, 'Market', style);
-	buttons.markets.goldForFood = game.add.button(180, 400, 'on', goldForFood, this, 2, 1, 0);
+	game.add.text(330, 370, 'Market', style);
+	buttons.markets.goldForFood = game.add.button(250, 400, 'on', goldForFood, this, 2, 1, 0);
 	buttons.markets.goldForFood.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(235, 405, '10 Gold For 30 Food', style2);
-	buttons.markets.goldForResearch = game.add.button(180, 450, 'on', goldForResearch, this, 2, 1, 0);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(305, 405, '10 Gold For 30 Food', style2);
+	buttons.markets.goldForResearch = game.add.button(250, 450, 'on', goldForResearch, this, 2, 1, 0);
 	buttons.markets.goldForResearch.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(220, 455, '10 Gold For 20 Research', style2);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(290, 455, '10 Gold For 20 Research', style2);
 
 	graphics = game.add.sprite(880, 165, 'politiesBar');
 	graphics.scale.set(2.7, 1.1);
@@ -314,16 +304,16 @@ function addMarkets() {
 	buttons.markets.researchForGold.scale.set(5, 0.7);
 	countryPlayer.text.levelHousingUpgrade = game.add.text(930, 255, '10 Research For 30 Gold', style2);
 
-	graphics = game.add.sprite(980, 365, 'politiesBar');
+	graphics = game.add.sprite(920, 365, 'politiesBar');
 	graphics.scale.set(2.7, 1.1);
 
-	game.add.text(1080, 370, 'Market', style);
-	buttons.markets.goldForFood2 = game.add.button(1000, 400, 'on', goldForFood2, this, 2, 1, 0);
+	game.add.text(1020, 370, 'Market', style);
+	buttons.markets.goldForFood2 = game.add.button(940, 400, 'on', goldForFood2, this, 2, 1, 0);
 	buttons.markets.goldForFood2.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(1040, 405, '10 Gold For 20 Food', style2);
-	buttons.markets.goldForResearch2 = game.add.button(1000, 450, 'on', goldForResearch2, this, 2, 1, 0);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(985, 405, '10 Gold For 20 Food', style2);
+	buttons.markets.goldForResearch2 = game.add.button(940, 450, 'on', goldForResearch2, this, 2, 1, 0);
 	buttons.markets.goldForResearch2.scale.set(5, 0.7);
-	countryPlayer.text.levelHousingUpgrade = game.add.text(1040, 455, '10 Gold For 30 Research', style2);
+	countryPlayer.text.levelHousingUpgrade = game.add.text(985, 455, '10 Gold For 30 Research', style2);
 }
 function addLinks() {
 	var graphics = game.add.graphics(0, 0);
