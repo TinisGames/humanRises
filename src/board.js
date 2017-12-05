@@ -155,7 +155,7 @@ function researchForGold() {
 }
 
 function goldForFood2() {
-	exchange(20, 'gold', 'gold', country4);
+	exchange(20, 'food', 'gold', country4);
 }
 
 function goldForResearch2() {
@@ -166,8 +166,8 @@ function exchange(price, what, forWhat, country) {
 	if (countryPlayer[what] >= price && country[forWhat] >= 10) {
 		countryPlayer[what] -= price;
 		countryPlayer[forWhat] += 10;
-		country[what] -= 10;
-		country[forWhat] += price;
+		country[what] += price;
+		country[forWhat] -= 10;
 
 		country.text[forWhat].setText(country[forWhat]);
 		country.text[what].setText(country[what]);
