@@ -208,7 +208,7 @@ function help() {
 	helpText.history1.setTextBounds(240, 150, 960, 100);
 	helpText.history2 = game.add.text(0, 0, 'Fortunately, they have the intelligence to improve the situation. Will they have time, however, to use it for survival ?', style2);
 	helpText.history2.setTextBounds(240, 200, 960, 100);
-	helpText.goal = game.add.text(0, 0, 'The goal of the game is to reach 1000 Research points before Happiness reaches 0. You can do this by interacting with the politics of your country and trading with your neighbours.', style2);
+	helpText.goal = game.add.text(0, 0, 'The goal of the game is to reach 1000 Research points before Happiness reaches 0, and before your neighbours. You can do this by interacting with the politics of your country and trading with your neighbours.', style2);
 	helpText.goal.setTextBounds(240, 230, 960, 100);
 	helpText.polity1 = game.add.text(0, 0, 'What policies can you pursue ?', style2);
 	helpText.polity1.setTextBounds(240, 280, 960, 100);

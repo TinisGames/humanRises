@@ -49,6 +49,8 @@ function addCountry1() {
 	var graphics = game.add.sprite(5, 15, 'infoBar');
 	graphics.scale.set(3.5, 4);
 
+	game.add.text(85, 65, country1.name, style);
+
 	country1.text.citizensText = game.add.text(55, 105, 'Citizens :', style);
 	country1.text.foodText = game.add.text(55, 125, 'Food :', style);
 	country1.text.happinessText = game.add.text(55, 145, 'Happiness :', style);
@@ -75,6 +77,8 @@ function addCountry1() {
 function addCountry2() {
 	var graphics = game.add.sprite(5, 410, 'infoBar');
 	graphics.scale.set(3.5, 4);
+
+	game.add.text(85, 460, country2.name, style);
 
 	country2.text.citizensText = game.add.text(55, 500, 'Citizens :', style);
 	country2.text.foodText = game.add.text(55, 520, 'Food :', style);
@@ -103,6 +107,8 @@ function addCountry3() {
 	var graphics = game.add.sprite(1170, 15, 'infoBar');
 	graphics.scale.set(3.5, 4);
 
+	game.add.text(1245, 65, country3.name, style);
+
 	country3.text.citizensText = game.add.text(1220, 105, 'Citizens :', style);
 	country3.text.foodText = game.add.text(1220, 125, 'Food :', style);
 	country3.text.happinessText = game.add.text(1220, 145, 'Happiness :', style);
@@ -130,6 +136,8 @@ function addCountry4() {
 	var graphics = game.add.sprite(1170, 410, 'infoBar');
 	graphics.scale.set(3.5, 4);
 
+	game.add.text(1245, 460, country4.name, style);
+
 	country4.text.citizensText = game.add.text(1220, 500, 'Citizens :', style);
 	country4.text.foodText = game.add.text(1220, 520, 'Food :', style);
 	country4.text.happinessText = game.add.text(1220, 540, 'Happiness :', style);
@@ -156,6 +164,8 @@ function addCountry4() {
 function addCountryPlayer() {
 	var graphics = game.add.sprite(585, 130, 'infoBar');
 	graphics.scale.set(3.5, 4);
+
+	game.add.text(670, 180, countryPlayer.name, style);
 
 	countryPlayer.text.citizensText = game.add.text(635, 220, 'Citizens :', style);
 	countryPlayer.text.foodText = game.add.text(635, 240, 'Food :', style);
