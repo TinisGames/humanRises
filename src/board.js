@@ -246,3 +246,29 @@ function closeHelp() {
 	helpText.button.destroy();
 	helpText.buttonText.destroy();
 }
+
+// ------------------------------------------
+
+function destroyText(country, message) {
+	country.text.citizensText.destroy();
+	country.text.foodText.destroy();
+	country.text.happinessText.destroy();
+	country.text.goldText.destroy();
+	country.text.researchText.setText(message);
+	country.text.landsText.destroy();
+	country.text.arableText.destroy();
+	country.text.seaText.destroy();
+	country.text.forestText.destroy();
+	country.text.industryText.destroy();
+	country.text.housingText.destroy();
+	country.text.citizens.destroy();
+	country.text.food.destroy();
+	country.text.happiness.destroy();
+	country.text.gold.destroy();
+	country.text.research.destroy();
+	country.text.arable.destroy();
+	country.text.sea.destroy();
+	country.text.forest.destroy();
+	country.text.industry.destroy();
+	country.text.housing.destroy();
+}

@@ -192,9 +192,9 @@ function addPlayerInfos() {
 	game.add.text(680, 30, 'Turn ', style);
 	turnText = game.add.text(730, 30, turn, style);
 
-	var endButton = game.add.button(800, 10, 'endTurn', endTurn, this, 2, 1, 0);
-	endButton.scale.set(0.25, 0.2);
-	game.add.text(825, 30, 'End Turn', style);
+	buttons.endButton = game.add.button(800, 10, 'endTurn', endTurn, this, 2, 1, 0);
+	buttons.endButton.scale.set(0.25, 0.2);
+	buttons.endButtonText = game.add.text(825, 30, 'End Turn', style);
 
 	// -- Player rules
 	graphics = game.add.sprite(310, 535, 'politiesBar');
@@ -378,26 +378,15 @@ function endTurn() {
 
 }
 function gameOver() {
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(625, 300, 150, 220);
-	graphics.endFill();
-
-	game.add.text(625, 300, 'Game over', style);
+	destroyText(countryPlayer, 'Game Over');
+	buttons.endButton.destroy();
+	buttons.endButtonText.destroy();
 }
 function victory(country) {
-	var x, y;
-	switch (country.name) {
-		case 'Peaslands': x = 20; y = 20; break;
-		case 'Richiztan': x = 20; y = 580; break;
-		case 'Intelligencia': x = 1230; y = 20; break;
-		case 'Industrand': x = 1230; y = 580; break;
-		case 'Player': x = 625, y = 300; break;
+	if (country.alive) {
+		if (country.name !== 'Player') gameOver();
+		destroyText(country, 'Victory !');
+		buttons.endButton.destroy();
+		buttons.endButtonText.destroy();
 	}
-	var graphics = game.add.graphics(0, 0);
-	graphics.beginFill(0x000000);
-	graphics.drawRect(x, y, 150, 220);
-	graphics.endFill();
-
-	game.add.text(x, y, 'Win !', style);
 }
