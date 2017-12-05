@@ -116,17 +116,27 @@ function refreshStats(country) {
 				break;
 		}
 
-		// var graphics = game.add.graphics(0, 0);
-		// graphics.beginFill(0x000000);
-		// graphics.drawRect(x, y, 150, 220);
-		// graphics.endFill();
-
-		// graphics = game.add.graphics(0, 0);
-		// graphics.beginFill(0x000000);
-		// graphics.drawRect(x2, y2, 280, 150);
-		// graphics.endFill();
-
-		// game.add.text(x, y, 'Revolution !', style);
+		country.text.citizensText.destroy();
+		country.text.foodText.destroy();
+		country.text.happinessText.destroy();
+		country.text.goldText.destroy();
+		country.text.researchText.setText('Revolution !');
+		country.text.landsText.destroy();
+		country.text.arableText.destroy();
+		country.text.seaText.destroy();
+		country.text.forestText.destroy();
+		country.text.industryText.destroy();
+		country.text.housingText.destroy();
+		country.text.citizens.destroy();
+		country.text.food.destroy();
+		country.text.happiness.destroy();
+		country.text.gold.destroy();
+		country.text.research.destroy();
+		country.text.arable.destroy();
+		country.text.sea.destroy();
+		country.text.forest.destroy();
+		country.text.industry.destroy();
+		country.text.housing.destroy();
 	}
 }
 
