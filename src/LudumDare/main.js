@@ -1,5 +1,3 @@
-var game = new Phaser.Game(1400, 800, Phaser.CANVAS, 'content', { preload: preload, create: create });
-
 var style = {
 	font: "16px Arial", fill: "#fff",
 	align: "left",
@@ -21,28 +19,30 @@ var turnText;
 
 var buttons = { birth: {}, funding: {}, fishing: {}, hunting: {}, consommation: {}, industry: {}, levelHousing: {}, markets: {}, help: {} };
 
-function preload() {
-	game.add.plugin(PhaserInput.Plugin);
-	game.load.image('background', 'assets/images/Background2.png');
-	game.load.image('endTurn', 'assets/images/Orange.png');
-	game.load.image('off', 'assets/images/buttonOff.png');
-	game.load.image('on', 'assets/images/buttonOn.png');
-	game.load.image('topBar', 'assets/images/topBar.png');
-	game.load.image('infoBar', 'assets/images/infoBar.png');
-	game.load.image('politiesBar', 'assets/images/politiesBar.png');
-}
+var ludumDareState = {
+	preload: function () {
+		game.add.plugin(PhaserInput.Plugin);
+		game.load.image('background', 'assets/images/Background2.png');
+		game.load.image('endTurn', 'assets/images/Orange.png');
+		game.load.image('off', 'assets/images/buttonOff.png');
+		game.load.image('on', 'assets/images/buttonOn.png');
+		game.load.image('topBar', 'assets/images/topBar.png');
+		game.load.image('infoBar', 'assets/images/infoBar.png');
+		game.load.image('politiesBar', 'assets/images/politiesBar.png');
+	},
 
-function create() {
-	game.add.tileSprite(0, 0, 1400, 800, 'background');
-	addLinks();
-	addMarkets();
-	addPlayerInfos();
-	addCountry1();
-	addCountry2();
-	addCountry3();
-	addCountry4();
-	addCountryPlayer();
-	help();
+	create: function () {
+		game.add.tileSprite(0, 0, 1400, 800, 'background');
+		addLinks();
+		addMarkets();
+		addPlayerInfos();
+		addCountry1();
+		addCountry2();
+		addCountry3();
+		addCountry4();
+		addCountryPlayer();
+		help();
+	}
 }
 
 function addCountry1() {
