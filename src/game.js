@@ -5,5 +5,6 @@ game.state.add('ludumDare', ludumDareState);
 game.state.add('new_menu', menuState);
 game.state.add('new_tuto', tutoState);
 game.state.add('new_game', gameState);
+game.state.add('new_end', endState);
 
 game.state.start('boot');

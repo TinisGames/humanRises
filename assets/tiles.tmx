@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="hexagonal" renderorder="right-down" width="12" height="10" tilewidth="120" tileheight="140" hexsidelength="60" staggeraxis="y" staggerindex="odd" nextobjectid="7">
+ <tileset firstgid="1" source="images/hexagon-pack/Spritesheets/sans-titre.tsx"/>
+ <layer name="Calque de Tile 1" width="12" height="10" offsetx="-66" offsety="-50">
+  <data encoding="base64" compression="zlib">
+   eJyzY2BgsCMRWwGxBxoGiU/BIY6u/hiSemxmYVNrB2Ujy83Cox6dhmFktVOQ1BxDUxMLxHFoeqdgMQOdrw11Fzb7rLCIYXM7uvnHoGZG43D/FDT2LCT1ALEUKSc=
+  </data>
+ </layer>
+ <objectgroup name="Calque d'objets 1" visible="0" offsetx="-8" offsety="50"/>
+ <imagelayer name="Calque d'image 1" visible="0" offsetx="-140" offsety="46"/>
+</map>
